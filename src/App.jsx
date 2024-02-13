@@ -1,7 +1,9 @@
-import {Container} from 'react-bootstrap'
+import {Container, Image} from 'react-bootstrap'
 import Footer from './components/common/Footer'
 import './App.css'
 import "bootstrap/dist/css/bootstrap.min.css";
+import logo from './assets/cookinando-sf-transformed.png'
+
 
 function App() {
  
@@ -9,7 +11,7 @@ function App() {
   return (
     <>
      <Container className="main" >
-      <h1>Aca inicia el proyecto</h1>
+      <Image src={logo} fluid />
      </Container>
      <Footer/>
     </>
