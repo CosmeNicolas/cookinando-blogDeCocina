@@ -1,0 +1,22 @@
+/* #3E3232
+#503C3C
+#7E6363
+#A87C7C
+
+fuente:better together
+*/
+
+
+#root {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+footer{
+  background-color: #3E3232;
+}
