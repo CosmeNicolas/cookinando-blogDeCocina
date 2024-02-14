@@ -1,5 +1,6 @@
 import { Container, Nav, Navbar, Image } from "react-bootstrap";
 import LogoMarca from '../../assets/CookinandoBlanco-sf.png'
+import {Link, NavLink} from 'react-router-dom'
 
 
 const NavBarMenu = () => {
@@ -7,7 +8,7 @@ const NavBarMenu = () => {
     <>
       <Navbar variant="dark" expand="lg" className="nav-estilo">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand as={Link} to='/' href="/" >
             <Image 
             src={LogoMarca}
             className="img-fluid"
@@ -16,18 +17,18 @@ const NavBarMenu = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="#home">
+              <NavLink className="nav-link" to="/" href="#home">
                 Inicio
-              </Nav.Link>
-              <Nav.Link href="#link">
+              </NavLink>
+              <NavLink className="nav-link" to='/administrador'>
                 Administrador
-                </Nav.Link>
-              <Nav.Link href="#link">
+                </NavLink>
+              <NavLink className="nav-link" to='/login' href="#link">
                 Login
-                </Nav.Link>
-              <Nav.Link href="#link">
+                </NavLink>
+              <NavLink className="nav-link" to='error' href="#link">
                 Registro
-                </Nav.Link>
+                </NavLink>
             </Nav>
           </Navbar.Collapse>
         </Container>
