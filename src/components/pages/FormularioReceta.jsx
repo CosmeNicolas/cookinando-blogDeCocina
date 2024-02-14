@@ -19,7 +19,7 @@ const FormularioReceta = () => {
   return (
     <>
       <Container className="main p-2">
-        <h1 className="titulo-inicio mt-3 py-2">Nuevo Producto</h1>
+        <h1 className="titulo-inicio mt-3 py-2">Nueva Receta</h1>
         <hr />
         {/* manejo de formulario */}
         <Form
