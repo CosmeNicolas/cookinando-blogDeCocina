@@ -1,13 +1,14 @@
-import {Container, Image} from 'react-bootstrap'
-import logo from './assets/cookinando-sf-transformed.png'
+import {Image} from 'react-bootstrap'
+import banner from '../../assets/Cookinando-banner.png'
+
 
 const Inicio = () => {
   return (
     <>
-    <Container className="main" >
-      <Image src={logo} fluid />
-     </Container>
-     <Footer/>
+    <section className="main">
+      <Image src={banner} 
+      className='w-100 '/>
+     </section>
     </>
   )
 }
