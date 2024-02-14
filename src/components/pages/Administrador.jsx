@@ -12,7 +12,7 @@ const Administrador = () => {
   return (
     <Container className="main">
       <div className="d-flex justify-content-around mt-3">
-      <h1>
+      <h1 className="titulo-inicio">
         Recetas Disponibles
       </h1>
       
