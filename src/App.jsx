@@ -7,6 +7,7 @@ import Inicio from './components/pages/Inicio'
 import Administrador from './components/pages/Administrador'
 import DetalleReceta from './components/pages/DetalleReceta'
 import Error from './components/pages/Error'
+import FormularioReceta from './components/pages/FormularioReceta'
 
 
 
@@ -20,7 +21,12 @@ function App() {
     <Routes>
      <Route exact path='/' element={<Inicio/>} />
      <Route exact path='/administrador' element={<Administrador/>} />
-     <Route exact path='/administrador/detalle' element={<DetalleReceta/>} />
+     <Route exact path='/administrador/crear' element={<FormularioReceta/>} />
+     <Route
+     exact   
+     path='/administrador/detalle'
+     element={<DetalleReceta/>}
+      />
      <Route path="*" element={<Error/>} />
     </Routes>
     <Footer/>
