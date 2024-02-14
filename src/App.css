@@ -1,9 +1,24 @@
-/* #3E3232
+
+@import url('https://fonts.googleapis.com/css2?family=Playball&family=Roboto&display=swap');
+
+
+/* Colors 
+#3E3232
 #503C3C
 #7E6363
 #A87C7C
 
-fuente:better together
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.playball-regular {
+  font-family: "Playball", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 */
 
 
@@ -24,4 +39,9 @@ footer{
 
 .nav-estilo{
   background-color: #503C3C;
+}
+
+
+.titulo-inicio{
+  font-family: "Playball", cursive;
 }
