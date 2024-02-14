@@ -48,7 +48,14 @@ footer{
 
 .botonColor{
   background-color:#A87C7C ;
-  color: #121212;
+  color: rgb(35, 35, 35);
+  font-family: "Roboto", sans-serif;
+  font-size: large;
+}
+
+.botonColorCrear{
+  background-color:#A87C7C ;
+  color: aliceblue;
   font-family: "Roboto", sans-serif;
   font-size: large;
 }
