@@ -28,12 +28,12 @@ const FormularioReceta = () => {
         >
           {/*Producto  */}
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Producto*</Form.Label>
+            <Form.Label>Nombre Receta*</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Ej: Café"
+              placeholder="Ej: Lemon Pie"
               name="producto"
-              {...register("nombreProducto", {
+              {...register("nombreReceta", {
                 required: "El nombre del producto es obligatorio",
                 minLength: {
                   value: 2,

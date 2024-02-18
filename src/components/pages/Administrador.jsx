@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCirclePlus} from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-import { faFolderPlus } from '@fortawesome/free-solid-svg-icons';
+
 
 
 
@@ -28,8 +28,8 @@ const Administrador = () => {
       <thead>
         <tr>
           <th>Cod</th>
-          <th>Producto</th>
-          <th>Precio</th>
+          <th>Nombre Receta</th>
+          <th>Ingredientes</th>
           <th>URLimg</th>
           <th>Categoría</th>
           <th>Opciones</th>
