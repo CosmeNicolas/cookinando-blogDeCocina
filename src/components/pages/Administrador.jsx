@@ -4,11 +4,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCirclePlus} from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-
+import { leerRecetasAPI } from "../../helpers/queries";
+import { useEffect, useState } from "react";
 
 
 
 const Administrador = () => {
+  const [recetas, setRecetas] = useState([])
+
+  console.log(leerRecetasAPI)
+
+useEffect(() => {
+  traerRecetas()
+}, [])
+
+
+
+  const traerRecetas = async () =>{
+    try {
+      const listaRecetasAPI = await leerRecetasAPI();
+      setRecetas(listaRecetasAPI)
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
   return (
     <Container className="main">
       <div className="d-flex justify-content-around mt-3">
