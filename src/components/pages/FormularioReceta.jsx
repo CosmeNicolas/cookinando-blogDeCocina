@@ -57,7 +57,7 @@ const FormularioReceta = () => {
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Ingrediente 1**</Form.Label>
             <Form.Control
-              type="number"
+              type="text"
               placeholder="Ej: Azucar"
               name="ingrediente"
               {...register("ingrediente1", {
@@ -81,7 +81,7 @@ const FormularioReceta = () => {
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Ingrediente 2**</Form.Label>
             <Form.Control
-              type="number"
+              type="text"
               placeholder="Ej: Azucar"
               name="ingrediente"
               {...register("ingrediente2", {
@@ -105,7 +105,7 @@ const FormularioReceta = () => {
 <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Ingrediente 3**</Form.Label>
             <Form.Control
-              type="number"
+              type="text"
               placeholder="Ej: Azucar"
               name="ingrediente"
               {...register("ingrediente3", {
@@ -126,11 +126,11 @@ const FormularioReceta = () => {
             </Form.Group>
 
 
-            {/* Ingrediente 2 */}
+            {/* Ingrediente 4 */}
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Ingrediente 4**</Form.Label>
             <Form.Control
-              type="number"
+              type="text"
               placeholder="Ej: Azucar"
               name="ingrediente"
               {...register("ingrediente4", {
@@ -154,7 +154,7 @@ const FormularioReceta = () => {
 <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Ingrediente 5**</Form.Label>
             <Form.Control
-              type="number"
+              type="text"
               placeholder="Ej: Azucar"
               name="ingrediente"
               {...register("ingrediente4", {
