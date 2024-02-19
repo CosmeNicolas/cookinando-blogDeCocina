@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 const Administrador = () => {
   const [recetas, setRecetas] = useState([])
 
-  console.log(leerRecetasAPI)
+
 
 useEffect(() => {
   traerRecetas()
@@ -24,7 +24,7 @@ useEffect(() => {
     try {
       const listaRecetasAPI = await leerRecetasAPI();
       setRecetas(listaRecetasAPI)
-      
+      console.log(listaRecetasAPI)
     } catch (error) {
       console.log(error)
     }
@@ -53,17 +53,24 @@ useEffect(() => {
           <th>Nombre Receta</th>
           <th>Ingredientes</th>
           <th>URLimg</th>
-          <th>Categoría</th>
+         {/*  <th>Preparacion</th> */}
           <th>Opciones</th>
         </tr>
       </thead>
       <tbody>
-          <tr>
-          <td>1</td>
-          <td>Nombre Receta</td>
-          <td>ingredientes</td>
-          <td>📝</td>
-          <td>Categoria</td>
+        {
+          recetas.map((receta)=>(
+          <tr key={receta.id}>
+          <td>{receta.id}</td>
+          <td>{receta.nombreReceta}</td>
+          <td>
+            <li>{receta.ingredientes}</li>
+          </td>
+            
+          <td>
+            <img src={receta.imagen} alt="imagen-receta" className="img-fluid h-100" />
+          </td>
+          {/* <td>{receta.preparacion}</td> */}
           <td className='d-flex py-5  justify-content-center'>
           <Button variant="warning" className='me-1' >
             <FontAwesomeIcon icon={faPenToSquare} />
@@ -73,6 +80,8 @@ useEffect(() => {
             </Button>
           </td>
         </tr>
+          ))
+        }
       </tbody>
     </Table>
       </Container>
