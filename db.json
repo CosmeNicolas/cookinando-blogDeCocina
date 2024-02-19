@@ -1,0 +1,19 @@
+{
+    "recetas":[
+        {
+            "nombreReceta": "Galletas de Avena y Banana",
+            "ingredientes": [
+                "200 gramos de avena ",
+                "3 bananas",
+                "2 cucharadas de miel",
+                "2 Cucharadas de aceite",
+                "chips de chocolate"
+            ],
+            "preparacion": "Colocar las bananas en un recipiente y aplastarlas por completo hasta formar un puré. Luego agregar dos cucharadas de miel y una cucharada de aceite. Mezclar todo. \n\nSumar la avena de a poco e irla integrando mientras se remueve la mezcla. Agregar dos cucharadas de chips de chocolate (opcional) y unirlo todo. \n\nPausa para precalentar el horno en 180°. \n\nCon las manos húmedas formar las galletas e irlas colocando sobre una bandeja enmantecada. \n\nCuando estén todas las galletas listas llevarlas a horno precalentado y cocinar por 10 minutos o hasta dorar.",
+            "imagen": "https://images.pexels.com/photos/14043662/pexels-photo-14043662.jpeg",
+            "disponibilidad": true,
+            "id": "1"
+        }
+        
+    ]
+}

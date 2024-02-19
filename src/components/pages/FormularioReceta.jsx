@@ -46,12 +46,12 @@ const FormularioReceta = () => {
               })}
             />
             <Form.Text className="text-danger">
-              {errors.nombreProducto?.message}
+              {errors.nombreReceta?.message}
             </Form.Text>
           </Form.Group>
           {/* Precio */}
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Precio**</Form.Label>
+            <Form.Label>Ingredientes**</Form.Label>
             <Form.Control
               type="number"
               placeholder="Ej: $100"
@@ -86,7 +86,7 @@ const FormularioReceta = () => {
             <Form.Control
               type="text"
               name="imagen"
-              placeholder="https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg?auto=compress&cs=tinysrgb&w=400"
+              placeholder="https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg"
               {...register("imagen", {
                 required: "Debe ingresar una URL de imagen en formato png",
                 pattern: {

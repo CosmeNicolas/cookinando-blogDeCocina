@@ -8,6 +8,7 @@ import Administrador from './components/pages/Administrador'
 import DetalleReceta from './components/pages/DetalleReceta'
 import Error from './components/pages/Error'
 import FormularioReceta from './components/pages/FormularioReceta'
+import './helpers/queries'
 
 
 
