@@ -68,6 +68,10 @@ useEffect(() => {
           <td>
       <ul>
       <li>{receta.ingrediente1}</li>
+      <li>{receta.ingrediente2}</li>
+      <li>{receta.ingrediente3}</li>
+      <li>{receta.ingrediente4}</li>
+      <li>{receta.ingrediente5}</li>
       </ul>
           </td>
             

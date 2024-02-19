@@ -53,9 +53,9 @@ const FormularioReceta = () => {
             </Form.Text>
           </Form.Group>
 
-          {/* Ingrediente */}
+          {/* Ingrediente1 */}
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Precio**</Form.Label>
+            <Form.Label>Ingrediente 1**</Form.Label>
             <Form.Control
               type="number"
               placeholder="Ej: Azucar"
@@ -73,9 +73,108 @@ const FormularioReceta = () => {
               })}
             />
             <Form.Text className="text-danger">
-              {errors.ingrediente?.message}
+              {errors.ingrediente1?.message}
             </Form.Text>
             </Form.Group>
+
+             {/* Ingrediente 2 */}
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Ingrediente 2**</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Ej: Azucar"
+              name="ingrediente"
+              {...register("ingrediente2", {
+                required: "Debe ingresar un ingrediente",
+                minLength: {
+                  value: 2,
+                  message: "El ingrediente debe tener como minimo 2 caracteres",
+                },
+                maxLength: {
+                  value: 30,
+                  message: "Supera la cantidad de 30 caracteres",
+                },
+              })}
+            />
+            <Form.Text className="text-danger">
+              {errors.ingrediente1?.message}
+            </Form.Text>
+            </Form.Group>
+
+{/* Ingrediente 3 */}
+<Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Ingrediente 3**</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Ej: Azucar"
+              name="ingrediente"
+              {...register("ingrediente3", {
+                required: "Debe ingresar un ingrediente",
+                minLength: {
+                  value: 2,
+                  message: "El ingrediente debe tener como minimo 2 caracteres",
+                },
+                maxLength: {
+                  value: 30,
+                  message: "Supera la cantidad de 30 caracteres",
+                },
+              })}
+            />
+            <Form.Text className="text-danger">
+              {errors.ingrediente1?.message}
+            </Form.Text>
+            </Form.Group>
+
+
+            {/* Ingrediente 2 */}
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Ingrediente 4**</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Ej: Azucar"
+              name="ingrediente"
+              {...register("ingrediente4", {
+                required: "Debe ingresar un ingrediente",
+                minLength: {
+                  value: 2,
+                  message: "El ingrediente debe tener como minimo 2 caracteres",
+                },
+                maxLength: {
+                  value: 30,
+                  message: "Supera la cantidad de 30 caracteres",
+                },
+              })}
+            />
+            <Form.Text className="text-danger">
+              {errors.ingrediente1?.message}
+            </Form.Text>
+            </Form.Group>
+
+{/* Ingrediente 2 */}
+<Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Ingrediente 5**</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Ej: Azucar"
+              name="ingrediente"
+              {...register("ingrediente4", {
+                required: "Debe ingresar un ingrediente",
+                minLength: {
+                  value: 2,
+                  message: "El ingrediente debe tener como minimo 2 caracteres",
+                },
+                maxLength: {
+                  value: 30,
+                  message: "Supera la cantidad de 30 caracteres",
+                },
+              })}
+            />
+            <Form.Text className="text-danger">
+              {errors.ingrediente1?.message}
+            </Form.Text>
+            </Form.Group>
+
+
 
             {/* Nuevo Ingrediente */}
          
