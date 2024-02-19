@@ -2,28 +2,21 @@ import { Form, Button, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+
 
 const FormularioReceta = () => {
-  const [inputs, setInputs] = useState([]);
-  const [nuevoIngrediente, setNuevoIngrediente] =useState('')
-
-  const agregarIngrediente = ()=>{
-    setInputs([...inputs, nuevoIngrediente]);
-    setNuevoIngrediente('')
-  }
 
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm();
 
-  const productoValidado = (producto) => {
-    console.log(producto);
-    reset()
+  const recetaValidada = (receta) => {
+    console.log(receta);
+    reset();
   };
 
   return (
@@ -34,9 +27,9 @@ const FormularioReceta = () => {
         {/* manejo de formulario */}
         <Form
           className="p-3 my-2 formulario"
-          onSubmit={handleSubmit(productoValidado)}
+          onSubmit={handleSubmit(recetaValidada)}
         >
-          {/*Producto  */}
+          {/*receta  */}
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Nombre Receta*</Form.Label>
             <Form.Control
@@ -60,45 +53,32 @@ const FormularioReceta = () => {
             </Form.Text>
           </Form.Group>
 
-
           {/* Ingrediente */}
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Ingredientes**</Form.Label>
-            <Button onClick={agregarIngrediente}>
-              Agregar Ingrediente
-            </Button>
-            {
-              inputs.map((input, index)=>(
-                
-                (<Form.Control
-                  key={index}
-                  type="text"
-                  placeholder="Ej: 100grs de Harina"
-                  name="ingrediente"
-                  value={input}
-                  onChange={(e) => setNuevoIngrediente(e.target.value)}
-                  {...register("ingrediente", {
-                    required: "Debe ingresar un ingrediente",
-                    minLength: {
-                      value: 2,
-                      message: "El ingrediente debe tener como minimo 2 caracteres",
-                    },
-                    maxLength: {
-                      value: 50,
-                      message: "Supera la cantidad de 5 caracteres",
-                    },
-                  })}
-                />)
-                ))
-            }
-
+            <Form.Label>Precio**</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Ej: Azucar"
+              name="ingrediente"
+              {...register("ingrediente1", {
+                required: "Debe ingresar un ingrediente",
+                minLength: {
+                  value: 2,
+                  message: "El ingrediente debe tener como minimo 2 caracteres",
+                },
+                maxLength: {
+                  value: 30,
+                  message: "Supera la cantidad de 30 caracteres",
+                },
+              })}
+            />
             <Form.Text className="text-danger">
               {errors.ingrediente?.message}
             </Form.Text>
-          </Form.Group>
+            </Form.Group>
 
-
-
+            {/* Nuevo Ingrediente */}
+         
           {/* Imagen url */}
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Imagen URL</Form.Label>
@@ -167,10 +147,14 @@ const FormularioReceta = () => {
               {errors.preparacion?.message}
             </Form.Text>
           </Form.Group>
-         
+
           <div className="text-center">
-            <Button className="botonColorCrear mb-2 py-2" variant="dark" type="submit">
-              Guardar <FontAwesomeIcon icon={faUtensils} /> 
+            <Button
+              className="botonColorCrear mb-2 py-2"
+              variant="dark"
+              type="submit"
+            >
+              Guardar <FontAwesomeIcon icon={faUtensils} />
             </Button>
           </div>
         </Form>
@@ -179,4 +163,4 @@ const FormularioReceta = () => {
   );
 };
 
-export default FormularioReceta
+export default FormularioReceta;

@@ -66,7 +66,9 @@ useEffect(() => {
           <td>{receta.nombreReceta}</td>
           <td>{receta.categoria}</td>
           <td>
-            <li>{receta.ingredientes}</li>
+      <ul>
+      <li>{receta.ingrediente1}</li>
+      </ul>
           </td>
             
           <td>
