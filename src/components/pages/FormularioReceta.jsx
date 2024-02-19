@@ -2,8 +2,18 @@ import { Form, Button, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 const FormularioReceta = () => {
+  const [inputs, setInputs] = useState([]);
+  const [nuevoIngrediente, setNuevoIngrediente] =useState('')
+
+  const agregarIngrediente = ()=>{
+    setInputs([...inputs, nuevoIngrediente]);
+    setNuevoIngrediente('')
+  }
+
+
   const {
     register,
     handleSubmit,
@@ -34,7 +44,7 @@ const FormularioReceta = () => {
               placeholder="Ej: Lemon Pie"
               name="producto"
               {...register("nombreReceta", {
-                required: "El nombre del producto es obligatorio",
+                required: "El nombre de la receta es obligatorio",
                 minLength: {
                   value: 2,
                   message: "Debe ingresar como minimo dos caracteres",
@@ -49,37 +59,46 @@ const FormularioReceta = () => {
               {errors.nombreReceta?.message}
             </Form.Text>
           </Form.Group>
-          {/* Precio */}
+
+
+          {/* Ingrediente */}
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Ingredientes**</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Ej: $100"
-              name="precio"
-              {...register("precio", {
-                required: "Debe ingresar un monto",
-                min: {
-                  value: 50,
-                  message: "Debe ingresar un valor entre 50 y 99999",
-                },
-                max: {
-                  value: 99999,
-                  message: "No debe superar el monto de 99999",
-                },
-                minLength: {
-                  value: 2,
-                  message: "El monto debe tener como minimo 2 caracteres",
-                },
-                maxLength: {
-                  value: 5,
-                  message: "Supera la cantidad de 5 caracteres",
-                },
-              })}
-            />
+            <Button onClick={agregarIngrediente}>
+              Agregar Ingrediente
+            </Button>
+            {
+              inputs.map((input, index)=>(
+                
+                (<Form.Control
+                  key={index}
+                  type="text"
+                  placeholder="Ej: 100grs de Harina"
+                  name="ingrediente"
+                  value={input}
+                  onChange={(e) => setNuevoIngrediente(e.target.value)}
+                  {...register("ingrediente", {
+                    required: "Debe ingresar un ingrediente",
+                    minLength: {
+                      value: 2,
+                      message: "El ingrediente debe tener como minimo 2 caracteres",
+                    },
+                    maxLength: {
+                      value: 50,
+                      message: "Supera la cantidad de 5 caracteres",
+                    },
+                  })}
+                />)
+                ))
+            }
+
             <Form.Text className="text-danger">
-              {errors.precio?.message}
+              {errors.ingrediente?.message}
             </Form.Text>
           </Form.Group>
+
+
+
           {/* Imagen url */}
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Imagen URL</Form.Label>
@@ -102,72 +121,53 @@ const FormularioReceta = () => {
           </Form.Group>
           {/* Categoria */}
           <Form.Group className="mb-3">
-            <Form.Label>Tipo de Producto*</Form.Label>
+            <Form.Label>Tipo de Receta*</Form.Label>
             <Form.Select
               {...register("categoria", {
                 required: "Debe seleccionar una categoria",
               })}
             >
               <option value="">Seleccione una Opción</option>
-              <option value="infusiones">Infusiones</option>
-              <option value="batidos">Batidos</option>
-              <option value="cafeComun">Café Común</option>
-              <option value="cafeEspecialidad">Café de especialidad</option>
-              <option value="materiaPrima">Materia prima</option>
-              <option value="panaderiaDulce">Panaderia Dulce</option>
-              <option value="panaderiasalado">Panaderia Salado</option>
-              <option value="bocadillos">Bocadillos</option>
+              <option value="saludables">🥗Saludables</option>
+              <option value="carne">🥩Carne</option>
+              <option value="cerdo">🐖Cerdo</option>
+              <option value="pollo">🐓Pollo</option>
+              <option value="pastas">🍝Pastas</option>
+              <option value="dulce">🍭Dulce</option>
+              <option value="salado">🧂Salado</option>
+              <option value="bebidas">🍹Bebidas y Cocktails</option>
+              <option value="pescadoYmariscos">🦐Pescados y Mariscos</option>
             </Form.Select>
             <Form.Text className="text-danger">
               {errors.categoria?.message}
             </Form.Text>
           </Form.Group>
           {/* Descripción */}
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Descripción breve*</Form.Label>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+            <Form.Label>Preparacion*</Form.Label>
             <Form.Control
+              as="textarea"
+              rows={3}
               type="text"
-              placeholder="Ej: Un producto con un toque personal, asi , como en casa"
-              name="descripcion_breve"
-              {...register("descripcion_breve", {
-                required: "Debe ingresar una descripcion",
+              placeholder="Ej: 1- Verter el contenido en un recipiente"
+              name="preparacion"
+              {...register("preparacion", {
+                required: "Debe ingresar una descripcion detallada",
                 minLength: {
                   value: 3,
                   message: "La descripcion debe tener como minimo 3 caracteres",
                 },
                 maxLength: {
-                  value: 30,
+                  value: 200,
                   message: "La descripcion supera los caracteres validos",
                 },
               })}
             />
             <Form.Text className="text-danger">
-              {errors.descripcion_breve?.message}
+              {errors.preparacion?.message}
             </Form.Text>
           </Form.Group>
-          {/* Descripción Amplia*/}
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Descripción Amplia*</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Ej: Espresso robusto con notas intensas de cacao y toques de avellana. Aromas potentes y cuerpo pleno, equilibrado con una sutil acidez. Ideal para quienes buscan una experiencia audaz y rica en cada sorbo."
-              name="descripcion_amplia"
-              {...register("descripcion_breve", {
-                required: "Debe ingresar una descripcion",
-                minLength: {
-                  value: 3,
-                  message: "La descripcion debe tener como minimo 3 caracteres",
-                },
-                maxLength: {
-                  value: 50,
-                  message: "La descripcion supera los caracteres validos",
-                },
-              })}
-            />
-            <Form.Text className="text-danger">
-              {errors.descripcion_amplia?.message}
-            </Form.Text>
-          </Form.Group>
+         
           <div className="text-center">
             <Button className="botonColorCrear mb-2 py-2" variant="dark" type="submit">
               Guardar <FontAwesomeIcon icon={faUtensils} /> 

@@ -51,6 +51,7 @@ useEffect(() => {
         <tr>
           <th>Cod</th>
           <th>Nombre Receta</th>
+          <th>Categoria</th>
           <th>Ingredientes</th>
           <th>URLimg</th>
          {/*  <th>Preparacion</th> */}
@@ -63,12 +64,13 @@ useEffect(() => {
           <tr key={receta.id}>
           <td>{receta.id}</td>
           <td>{receta.nombreReceta}</td>
+          <td>{receta.categoria}</td>
           <td>
             <li>{receta.ingredientes}</li>
           </td>
             
           <td>
-            <img src={receta.imagen} alt="imagen-receta" className="img-fluid h-100" />
+            <img src={receta.imagen} alt="imagen-receta" className="img-fluid img-producto-admin" />
           </td>
           {/* <td>{receta.preparacion}</td> */}
           <td className='d-flex py-5  justify-content-center'>

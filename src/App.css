@@ -59,3 +59,8 @@ footer{
   font-family: "Roboto", sans-serif;
   font-size: large;
 }
+
+.img-producto-admin{
+  width: 300px;
+  height: auto;
+}
