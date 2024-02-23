@@ -69,3 +69,14 @@ footer{
   width: 300px;
   height: auto;
 }
+
+.contenedor-img-detalle {
+  width: 100%;
+  object-fit: cover;
+}
+
+
+.img-detalle {
+  height: 500px;
+  object-fit: cover;
+}

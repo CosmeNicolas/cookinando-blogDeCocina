@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
 import { crearRecetaAPI } from "../../../helpers/queries";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 const FormularioReceta = () => {
   const {
@@ -13,22 +13,22 @@ const FormularioReceta = () => {
     reset,
   } = useForm();
 
-  const recetaValidada = async(receta) => {
+  const recetaValidada = async (receta) => {
     console.log(receta);
     //logica par crear producto
-    const respuesta = await crearRecetaAPI(receta)
-    if(respuesta.status === 201){
+    const respuesta = await crearRecetaAPI(receta);
+    if (respuesta.status === 201) {
       Swal.fire({
         title: "Receta Creada!",
         text: "Receta creada con Exito",
-        icon: "success"
+        icon: "success",
       });
       reset();
-    }else{
+    } else {
       Swal.fire({
         title: "Ocurrio un Error!",
         text: "Intente crear la receta en unos minutos",
-        icon: "error"
+        icon: "error",
       });
     }
   };
