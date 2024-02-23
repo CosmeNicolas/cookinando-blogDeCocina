@@ -52,6 +52,11 @@ footer{
   font-family: "Roboto", sans-serif;
   font-size: large;
 }
+.botonColorInicio{
+  background-color:#A87C7C ;
+  font-family: "Roboto", sans-serif;
+  font-size: large;
+}
 
 .botonColorCrear{
   background-color:#A87C7C ;

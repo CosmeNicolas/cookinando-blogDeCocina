@@ -1,9 +1,9 @@
-import {Container , Row, Col, Card} from 'react-bootstrap'
+import {Container , Row, Col, Card } from 'react-bootstrap'
 import { Link } from "react-router-dom";
+import { leerRecetasAPI } from '../../../helpers/queries';
+import { useEffect } from 'react';
 
 const CardReceta = () => {
-
-    
 
 
 
@@ -26,8 +26,8 @@ const CardReceta = () => {
                 </Card.Body>
                 <Card.Footer className="text-end">
                   <Link
-                    className="btn btn-success title"
-                    variant="success"
+                    className="btn  botonColorInicio text-light "
+                 variant="dark"
                     /* to={`administrador/detalle/${producto.id}`} */
                   >
                     Ver Producto

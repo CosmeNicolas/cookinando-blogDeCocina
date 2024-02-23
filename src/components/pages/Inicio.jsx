@@ -3,6 +3,10 @@ import banner from "../../assets/Cookinando-banner.png";
 import CardReceta from "./receta/CardReceta";
 
 const Inicio = () => {
+
+  
+
+
   return (
     <>
       <section className="main">
