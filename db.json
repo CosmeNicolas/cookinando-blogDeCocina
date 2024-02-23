@@ -1,52 +1,6 @@
 {
   "recetas": [
     {
-      "nombreReceta": "Galletas de Avena y Banana",
-      "ingrediente1": "200 gr de avena",
-      "ingrediente2": "3 bananas.",
-      "ingrediente3": "2 cucharadas de miel.r",
-      "ingrediente4": "2 cucharadas de aceite",
-      "ingrediente5": "Chips de chocolate",
-      "categoria": "saludables",
-      "preparacion": "Colocar las bananas en un recipiente y aplastarlas por completo hasta formar un puré. Luego agregar dos cucharadas de miel y una cucharada de aceite. Mezclar todo. \n\nSumar la avena de a poco e irla integrando mientras se remueve la mezcla. Agregar dos cucharadas de chips de chocolate (opcional) y unirlo todo. \n\nPausa para precalentar el horno en 180°. \n\nCon las manos húmedas formar las galletas e irlas colocando sobre una bandeja enmantecada. \n\nCuando estén todas las galletas listas llevarlas a horno precalentado y cocinar por 10 minutos o hasta dorar.",
-      "imagen": "https://images.pexels.com/photos/14043662/pexels-photo-14043662.jpeg",
-      "disponibilidad": true,
-      "id": "1"
-    },
-    {
-      "id": "5e99",
-      "nombreReceta": "asdasd",
-      "ingrediente1": "asdasdasd",
-      "ingrediente2": "asdasda",
-      "ingrediente3": "asdasda",
-      "ingrediente4": "asdasda",
-      "imagen": "https://i.pinimg.com/236x/35/bb/2d/35bb2de97553e338a33faea1a087a3ed.jpg",
-      "categoria": "saludables",
-      "preparacion": "asdasdadasdasdasdasdasd"
-    },
-    {
-      "id": "332a",
-      "nombreReceta": "asdasdad",
-      "ingrediente1": "asdadsads",
-      "ingrediente2": "asdasdasd",
-      "ingrediente3": "asdasdasd",
-      "ingrediente4": "asdasda",
-      "imagen": "https://i.pinimg.com/236x/35/bb/2d/35bb2de97553e338a33faea1a087a3ed.jpg",
-      "categoria": "saludables",
-      "preparacion": "asdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-    },
-    {
-      "id": "7845",
-      "nombreReceta": "asdasdasd",
-      "ingrediente1": "asdadaq",
-      "ingrediente2": "asda",
-      "ingrediente3": "aaaaaaaa",
-      "ingrediente4": "dddddddddddd",
-      "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg",
-      "categoria": "pollo",
-      "preparacion": "aaaaaaaaaaaaaaaaaaaaaaassssssssssssssssssdddddddddddd"
-    },
-    {
       "id": "0eba",
       "nombreReceta": "akjshdkahsdkah",
       "ingrediente1": "akajhsdkahsd",
@@ -56,6 +10,17 @@
       "imagen": "https://i.pinimg.com/564x/9a/02/87/9a02873eb75d3e9645fb90767aca7587.jpg",
       "categoria": "carne",
       "preparacion": "kahsdajksdjasdjhkashdkahsdkad"
+    },
+    {
+      "id": "d6d6",
+      "nombreReceta": "Algo rico",
+      "ingrediente1": "mermelada",
+      "ingrediente2": "azucar",
+      "ingrediente3": "vainilla",
+      "ingrediente4": "chips",
+      "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg",
+      "categoria": "dulce",
+      "preparacion": "combinar todo mezclar y horno "
     }
   ]
 }

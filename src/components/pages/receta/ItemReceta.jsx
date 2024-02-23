@@ -1,14 +1,43 @@
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
-import { leerRecetasAPI } from "../../../helpers/queries";
-leerRecetasAPI;
+import { leerRecetasAPI,  eliminarRecetaAPI} from "../../../helpers/queries";
 import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Swal from "sweetalert2";
 
-const ItemReceta = ({ recetas, setRecetas }) => {
+const ItemReceta = ({ receta, setRecetas }) => {
+  
+  const eliminarReceta = async ()=>{
+    Swal.fire({
+       title: "Deseas eliminar la receta?",
+       text: "No puedes revertir este proceso",
+       icon: "warning",
+       showCancelButton: true,
+       confirmButtonColor: "#3085d6",
+       cancelButtonColor: "#d33",
+       confirmButtonText: "Borrar",
+       cancelButtonText: "Cancelar",
+     }).then(async (result) => {
+       if (result.isConfirmed) {
+        const respuesta = await eliminarRecetaAPI(receta.id)
+      console.log(respuesta)
+      if(respuesta.status === 200){
+        //actualizar la tabla 
+        const recetasActualizadas = await leerRecetasAPI();
+        setRecetas(recetasActualizadas)
+        Swal.fire({
+          title: "Receta Eliminada!",
+          text: `Tu receta "${receta.nombreReceta}" fue eliminada`,
+          icon: "success"
+        });
+      }
+       }
+     }); 
+  }
+
+
   return (
     <>
-      {recetas.map((receta) => (
         <tr key={receta.id}>
           <td>{receta.id}</td>
           <td>{receta.nombreReceta}</td>
@@ -35,14 +64,16 @@ const ItemReceta = ({ recetas, setRecetas }) => {
             <Button variant="warning" className="me-1">
               <FontAwesomeIcon icon={faPenToSquare} />
             </Button>
-            <Button variant="danger">
+            <Button  onClick={eliminarReceta} variant="danger">
               <FontAwesomeIcon icon={faTrash}/>
             </Button>
           </td>
         </tr>
-      ))}
+ 
     </>
   );
 };
 
 export default ItemReceta;
+
+
