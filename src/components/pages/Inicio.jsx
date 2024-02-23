@@ -1,5 +1,6 @@
 import { Container, Image } from "react-bootstrap";
 import banner from "../../assets/Cookinando-banner.png";
+import CardReceta from "./receta/CardReceta";
 
 const Inicio = () => {
   return (
@@ -11,6 +12,7 @@ const Inicio = () => {
         <Container>
           <h1 className="text-center mt-3 titulo-inicio">Nuestras Recetas</h1>
           <hr />
+          <CardReceta/>
         </Container>
       </section>
     </>

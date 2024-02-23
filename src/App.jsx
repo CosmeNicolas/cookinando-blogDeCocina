@@ -7,7 +7,7 @@ import Inicio from './components/pages/Inicio'
 import Administrador from './components/pages/Administrador'
 import DetalleReceta from './components/pages/DetalleReceta'
 import Error from './components/pages/Error'
-import FormularioReceta from './components/pages/FormularioReceta'
+import FormularioReceta from "./components/pages/receta/FormularioReceta";
 import './helpers/queries'
 
 
