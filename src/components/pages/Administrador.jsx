@@ -46,7 +46,7 @@ const Administrador = () => {
       </div>
       <hr/>
       {/* Tabla */}
-      <Table responsive striped bordered hover variant='dark' size='sm' >
+      <Table responsive striped bordered hover variant='warning' size='sm' >
       <thead>
         <tr>
           <th>Cod</th>
