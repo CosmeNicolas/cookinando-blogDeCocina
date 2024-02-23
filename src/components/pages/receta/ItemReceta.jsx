@@ -31,7 +31,7 @@ const ItemReceta = ({ recetas, setRecetas }) => {
             />
           </td>
           {/* <td>{receta.preparacion}</td> */}
-          <td className="d-flex py-5  justify-content-center">
+          <td className="d-flex py-5 h-auto justify-content-center">
             <Button variant="warning" className="me-1">
               <FontAwesomeIcon icon={faPenToSquare} />
             </Button>
