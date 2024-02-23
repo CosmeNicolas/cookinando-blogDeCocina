@@ -2,11 +2,9 @@ import { Form, Button, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
-
+import { crearRecetaAPI } from "../../../helpers/queries";
 
 const FormularioReceta = () => {
-
-
   const {
     register,
     handleSubmit,
@@ -14,8 +12,12 @@ const FormularioReceta = () => {
     reset,
   } = useForm();
 
-  const recetaValidada = (receta) => {
+  const recetaValidada = async(receta) => {
     console.log(receta);
+    //logica par crear producto
+    const respuesta = await crearRecetaAPI(receta)
+    console.log(respuesta)
+    console.log('productoCreado')
     reset();
   };
 
@@ -75,9 +77,9 @@ const FormularioReceta = () => {
             <Form.Text className="text-danger">
               {errors.ingrediente1?.message}
             </Form.Text>
-            </Form.Group>
+          </Form.Group>
 
-             {/* Ingrediente 2 */}
+          {/* Ingrediente 2 */}
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Ingrediente 2**</Form.Label>
             <Form.Control
@@ -99,10 +101,10 @@ const FormularioReceta = () => {
             <Form.Text className="text-danger">
               {errors.ingrediente1?.message}
             </Form.Text>
-            </Form.Group>
+          </Form.Group>
 
-{/* Ingrediente 3 */}
-<Form.Group className="mb-3" controlId="formBasicEmail">
+          {/* Ingrediente 3 */}
+          <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Ingrediente 3**</Form.Label>
             <Form.Control
               type="text"
@@ -123,10 +125,9 @@ const FormularioReceta = () => {
             <Form.Text className="text-danger">
               {errors.ingrediente1?.message}
             </Form.Text>
-            </Form.Group>
+          </Form.Group>
 
-
-            {/* Ingrediente 4 */}
+          {/* Ingrediente 4 */}
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Ingrediente 4**</Form.Label>
             <Form.Control
@@ -148,10 +149,10 @@ const FormularioReceta = () => {
             <Form.Text className="text-danger">
               {errors.ingrediente1?.message}
             </Form.Text>
-            </Form.Group>
+          </Form.Group>
 
-{/* Ingrediente 2 */}
-<Form.Group className="mb-3" controlId="formBasicEmail">
+          {/* Ingrediente 2 */}
+          <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Ingrediente 5**</Form.Label>
             <Form.Control
               type="text"
@@ -172,12 +173,10 @@ const FormularioReceta = () => {
             <Form.Text className="text-danger">
               {errors.ingrediente1?.message}
             </Form.Text>
-            </Form.Group>
+          </Form.Group>
 
+          {/* Nuevo Ingrediente */}
 
-
-            {/* Nuevo Ingrediente */}
-         
           {/* Imagen url */}
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Imagen URL</Form.Label>

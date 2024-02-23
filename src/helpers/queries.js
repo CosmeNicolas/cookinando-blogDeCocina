@@ -14,3 +14,20 @@ export const leerRecetasAPI = async ()=> {
         console.log(error)
     }
 }
+
+//POST - CREAR 
+export const crearRecetaAPI = async(recetaNueva)=>{
+    try {
+        const respuesta = await fetch(URI_RECETAS,{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(recetaNueva)
+        });
+        console.log(respuesta);
+        return respuesta
+    } catch (error) {
+        console.log(error)
+    }
+}
