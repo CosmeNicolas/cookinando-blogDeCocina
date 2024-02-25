@@ -8,7 +8,7 @@ import Administrador from "./components/pages/Administrador";
 import DetalleReceta from "./components/pages/DetalleReceta";
 import Error from "./components/pages/Error";
 import FormularioReceta from "./components/pages/receta/FormularioReceta";
-import "./helpers/queries";
+
 
 function App() {
   return (
@@ -23,9 +23,9 @@ function App() {
             path="/administrador/crear"
             element={<FormularioReceta />}
           />
-          <Route
+           <Route
             exact
-            path="/administrador/detalle"
+            path="/administrador/detalle/:id"
             element={<DetalleReceta />}
           />
           <Route path="*" element={<Error />} />

@@ -45,3 +45,13 @@ export const eliminarRecetaAPI = async(id)=>{
         console.log(error)
     }
 }
+
+//GET - PETICION de un 1(un) producto por medio de :id
+export const obtenerRecetaAPI = async (id) => {
+    try {
+      const respuesta = await fetch(`${URI_RECETAS}/${id}`);
+      return respuesta;
+    } catch (error) {
+      console.log(error);
+    }
+  };
