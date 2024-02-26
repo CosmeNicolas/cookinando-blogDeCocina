@@ -1,36 +1,23 @@
 {
   "recetas": [
     {
-      "id": "0eba",
-      "nombreReceta": "500 gramos de carne molida (puede ser de res, cerdo o mezcla)",
+      "nombreReceta": "Medialunas",
       "ingrediente1": "1 huevo",
       "ingrediente2": "1 taza de pan rallado",
       "ingrediente3": "200 grs , de champiñones",
       "ingrediente4": "500 grs de carne molida",
-      "ingrediente5": "1 cucharada de aceite de oliva",
+      "ingrediente5": "Manteca",
       "imagen": "https://i.pinimg.com/564x/9a/02/87/9a02873eb75d3e9645fb90767aca7587.jpg",
-      "categoria": "carne",
-      "preparacion":  [
+      "categoria": "dulce",
+      "preparacion": [
         " En un tazón grande, mezcla la carne molida con el huevo y el pan rallado.",
         "Forma medallones con la mezcla de carne.",
         "Calienta el aceite de oliva en una sartén grande a fuego medio-alto.",
         "Cocina los medallones de carne hasta que estén dorados por ambos lados y cocidos por dentro.",
         "Retira los medallones de la sartén y en la misma sartén, agrega las láminas de champiñones. Cocina hasta que estén tiernos.",
         "Sirve los medallones de carne sobre una cama de champiñones salteados."
-      ]
-    
-    },
-    {
-      "id": "d6d6",
-      "nombreReceta": "Algo rico",
-      "ingrediente1": "mermelada",
-      "ingrediente2": "azucar",
-      "ingrediente3": "vainilla",
-      "ingrediente4": "chips",
-      "ingrediente5": "cholate amargo",
-      "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg",
-      "categoria": "dulce",
-      "preparacion": "combinar todo mezclar y horno "
+      ],
+      "id": "ea74"
     }
   ]
 }

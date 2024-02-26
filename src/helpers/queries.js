@@ -66,6 +66,7 @@ export const editarRecetaAPI = async (id, receta)=>{
             },
             body: JSON.stringify(receta)
         })
+        return respuesta
     } catch (error) {
         console.log(error)
     }
