@@ -57,7 +57,7 @@ const FormularioReceta = () => {
                   message: "Debe ingresar como minimo dos caracteres",
                 },
                 maxLength: {
-                  value: 50,
+                  value: 150,
                   message: "Debe ingresar como maximo 50 caracteres",
                 },
               })}
@@ -81,8 +81,8 @@ const FormularioReceta = () => {
                   message: "El ingrediente debe tener como minimo 2 caracteres",
                 },
                 maxLength: {
-                  value: 50,
-                  message: "Supera la cantidad de 30 caracteres",
+                  value: 150,
+                  message: "Supera la cantidad de 150 caracteres",
                 },
               })}
             />
@@ -105,8 +105,8 @@ const FormularioReceta = () => {
                   message: "El ingrediente debe tener como minimo 2 caracteres",
                 },
                 maxLength: {
-                  value: 30,
-                  message: "Supera la cantidad de 30 caracteres",
+                  alue: 150,
+                  message: "Supera la cantidad de 150 caracteres",
                 },
               })}
             />
@@ -129,8 +129,8 @@ const FormularioReceta = () => {
                   message: "El ingrediente debe tener como minimo 2 caracteres",
                 },
                 maxLength: {
-                  value: 30,
-                  message: "Supera la cantidad de 30 caracteres",
+                  alue: 150,
+                  message: "Supera la cantidad de 150 caracteres",
                 },
               })}
             />
@@ -153,8 +153,8 @@ const FormularioReceta = () => {
                   message: "El ingrediente debe tener como minimo 2 caracteres",
                 },
                 maxLength: {
-                  value: 30,
-                  message: "Supera la cantidad de 30 caracteres",
+                  alue: 150,
+                  message: "Supera la cantidad de 150 caracteres",
                 },
               })}
             />
@@ -177,8 +177,8 @@ const FormularioReceta = () => {
                   message: "El ingrediente debe tener como minimo 2 caracteres",
                 },
                 maxLength: {
-                  value: 30,
-                  message: "Supera la cantidad de 30 caracteres",
+                  alue: 150,
+                  message: "Supera la cantidad de 150 caracteres",
                 },
               })}
             />
