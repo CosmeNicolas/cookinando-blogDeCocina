@@ -46,6 +46,11 @@ footer{
   font-family: "Playball", cursive;
 }
 
+.imagen-banner {
+  object-fit: cover;
+  height: 550px;
+}
+
 .botonColor{
   background-color:#A87C7C ;
   color: rgb(35, 35, 35);
@@ -65,9 +70,14 @@ footer{
   font-size: large;
 }
 
-.img-producto-admin{
-  width: 300px;
-  height: auto;
+Table{
+  background-color: #A87C7C;
+}
+
+.img-receta-admin{
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
 }
 
 .contenedor-img-detalle {
@@ -80,3 +90,37 @@ footer{
   height: 500px;
   object-fit: cover;
 }
+
+.img-card-inicio {
+  width: auto;
+  height: 350px;
+  object-fit: cover;
+}
+
+
+
+/* responsive  */
+@media only screen and (max-width: 991px) {
+
+  .imagen-banner {
+    object-fit: cover;
+    height: 300px;
+  }
+
+
+
+}
+
+@media only screen and (max-width: 767px) {
+  .imagen-banner {
+    object-fit: cover;
+    height: 325px;
+  }
+
+  .img-receta-admin{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+  }
+}
+

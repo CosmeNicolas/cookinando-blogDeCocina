@@ -163,14 +163,14 @@ const FormularioReceta = () => {
             </Form.Text>
           </Form.Group>
 
-          {/* Ingrediente 2 */}
+          {/* Ingrediente 5 */}
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Ingrediente 5**</Form.Label>
             <Form.Control
               type="text"
               placeholder="Ej: Azucar"
               name="ingrediente"
-              {...register("ingrediente4", {
+              {...register("ingrediente5", {
                 required: "Debe ingresar un ingrediente",
                 minLength: {
                   value: 2,

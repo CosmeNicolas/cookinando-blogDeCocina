@@ -48,22 +48,22 @@ const ItemReceta = ({ receta, setRecetas }) => {
             <li>{receta.ingrediente5}</li>
           </ul>
         </td>
-
         <td>
           <img
             src={receta.imagen}
             alt="imagen-receta"
-            className="img-fluid img-producto-admin"
+            className="img-receta-admin"
           />
         </td>
-        {/* <td>{receta.preparacion}</td> */}
-        <td className="d-flex py-5 h-auto justify-content-center">
-          <Button variant="warning" className="me-1">
+        <td className="py-5 ">
+          <div className="d-flex justify-content-center  align-items-center flex-md-column flex-column">
+          <Button variant="warning" className="py-1  my-1">
             <FontAwesomeIcon icon={faPenToSquare} />
           </Button>
-          <Button onClick={eliminarReceta} variant="danger">
+          <Button onClick={eliminarReceta} variant="danger" className="py-1 my-1">
             <FontAwesomeIcon icon={faTrash} />
           </Button>
+          </div>
         </td>
       </tr>
     </>

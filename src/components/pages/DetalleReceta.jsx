@@ -1,65 +1,85 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState} from "react";
+import { Container } from "react-bootstrap";
+import { useEffect, useState } from "react";
 /* import Swal from "sweetalert2";  */
 import { obtenerRecetaAPI } from "../../helpers/queries";
 
 const DetalleReceta = () => {
-  const {id} = useParams()
-  const [detalle, setdetalle] = useState({})
+  const { id } = useParams();
+  const [detalle, setDetalle] = useState({});
 
- useEffect(() => {
-    mostrarDetalle()
- }, [])
- 
+  useEffect(() => {
+    mostrarDetalle();
+  }, []);
 
-  const mostrarDetalle = async () =>{
-   const mostrarReceta = await obtenerRecetaAPI(id)
-   console.log(mostrarReceta)
-   if (mostrarReceta.status === 200) {
-    const detalle = await mostrarReceta
-    console.log(detalle)
-    setdetalle(detalle)
-   }
-  }
+  const mostrarDetalle = async () => {
+    const respuesta = await obtenerRecetaAPI(id);
+    console.log(respuesta);
+    if (respuesta.status === 200) {
+      const detalle = await respuesta.json();
+      console.log(detalle);
+      setDetalle(detalle);
+    }
+  };
 
   return (
     <>
-      <h1 className="text-center">Detalle de la receta </h1>
+      <h1 className="text-center titulo-inicio mt-2 pt-3">
+        Detalle de la receta{" "}
+      </h1>
       <div className="container-fluid">
         <hr />
       </div>
       <section className=" main mt-3 ">
-      
-        <article className="p-lg-5">
-          <div className="d-flex container-fluid  justify-content-evenly align-content-center contenedor-detalle contenedor-img-detalle">
+        <Container className="p-lg-5" fluid>
+          <div className="d-flex flex-column container-fluid  justify-content-evenly align-content-center contenedor-detalle contenedor-img-detalle">
             <img
               className=" rounded-2 my-3 img-fluid img-detalle "
-              src={detalle.imagen} 
-             
+              src={detalle.imagen}
               alt="receta-cafeteria"
             />
-            <div className="ms-2">
+            <div className="ms-2 w-100">
               <h2 className="display-6 mt-2 text-md-center text-sm-center ">
-               receta
+                {detalle.nombreReceta}
               </h2>
               <hr />
-              <p className="p-lg-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, alias? Veniam, at cum. Quos fugiat aperiam rem ratione aspernatur sed deserunt ullam sequi. Nemo, beatae odit. Architecto numquam enim similique!</p>
+
               <ul className="list-unstyled p-lg-5">
                 <li>
-                  <strong className="color">Categoria:</strong>{" "}
-                 dulces
+                  <strong className="color">Categoria: </strong>
+                  {detalle.categoria}
                 </li>
+                <p>
+                  <strong className="color">Toma Nota 📝</strong>
+                </p>
+                <div className="container-fluid">
+                <hr />
+              </div>
                 <li>
-                  <strong className="color">Precio:</strong> $100
+                  Ingrediente 1:
+                  {detalle.ingrediente1}
                 </li>
+                <li>Ingrediente 2:{detalle.ingrediente2}</li>
+                <li>Ingrediente 3: {detalle.ingrediente3} </li>
+                <li>Ingrediente 4: {detalle.ingrediente4} </li>
+                <li>Ingrediente 5: {detalle.ingrediente5} </li>
               </ul>
+              {/* preparacion */}
+              <div className="container-fluid">
+                <hr />
+              </div>
+              <p className="container-fluid">
+               <strong>
+               Preparación: 
+                </strong> 
+                {detalle.preparacion}
+              </p>
             </div>
           </div>
-        </article>
+        </Container>
       </section>
     </>
   );
 };
 
 export default DetalleReceta;
-

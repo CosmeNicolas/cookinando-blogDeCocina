@@ -26,25 +26,24 @@ const Administrador = () => {
   return (
     <Container className="main">
       <div className="d-flex justify-content-around mt-3">
-        <h1 className="titulo-inicio">Recetas Disponibles</h1>
-
+        <h1 className="titulo-inicio mt-2">Recetas Disponibles</h1>
         <Link to="/administrador/crear">
-          <Button variant="dark" className="botonColorCrear mt-2">
+          <Button variant="dark" className="botonColorCrear mt-sm-3">
             <FontAwesomeIcon icon={faCirclePlus} />
           </Button>
         </Link>
       </div>
       <hr />
       {/* Tabla */}
-      <Table responsive striped bordered hover variant="warning" size="sm">
+      <Table responsive striped bordered hover variant="danger" size="sm">
         <thead>
-          <tr>
+          <tr >
             <th>Cod</th>
             <th>Nombre Receta</th>
             <th>Categoria</th>
             <th>Ingredientes</th>
-            <th>URLimg</th>
-            <th>Opciones</th>
+            <th>Imagen</th>
+            <th className="h-100">Opciones</th>
           </tr>
         </thead>
         <tbody>
