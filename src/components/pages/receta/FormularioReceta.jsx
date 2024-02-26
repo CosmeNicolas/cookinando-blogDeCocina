@@ -40,7 +40,7 @@ const FormularioReceta = ({ editar, titulo }) => {
       setValue("ingrediente2", setReceta.ingrediente2);
       setValue("ingrediente3", setReceta.ingrediente3);
       setValue("ingrediente4", setReceta.ingrediente4);
-      setValue("ingrediente5", setReceta.ingrediente4);
+      setValue("ingrediente5", setReceta.ingrediente5);
       setValue("imagen", setReceta.imagen);
       setValue("categoria", setReceta.categoria);
       setValue("preparacion", setReceta.preparacion);
