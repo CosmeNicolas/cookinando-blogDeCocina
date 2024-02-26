@@ -37,13 +37,13 @@ const Administrador = () => {
       {/* Tabla */}
       <Table responsive striped bordered hover variant="danger" size="sm">
         <thead>
-          <tr >
+          <tr>
             <th>Cod</th>
             <th>Nombre Receta</th>
             <th>Categoria</th>
             <th>Ingredientes</th>
             <th>Imagen</th>
-            <th className="h-100">Opciones</th>
+            <th>Opciones</th>
           </tr>
         </thead>
         <tbody>

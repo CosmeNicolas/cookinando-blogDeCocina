@@ -53,8 +53,8 @@ const DetalleReceta = () => {
                   <strong className="color">Toma Nota 📝</strong>
                 </p>
                 <div className="container-fluid">
-                <hr />
-              </div>
+                  <hr />
+                </div>
                 <li>
                   Ingrediente 1:
                   {detalle.ingrediente1}
@@ -69,9 +69,7 @@ const DetalleReceta = () => {
                 <hr />
               </div>
               <p className="container-fluid">
-               <strong>
-               Preparación: 
-                </strong> 
+                <strong>Preparación:</strong>
                 {detalle.preparacion}
               </p>
             </div>

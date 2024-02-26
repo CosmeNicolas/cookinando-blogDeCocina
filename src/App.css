@@ -1,48 +1,33 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Playball&family=Roboto&display=swap');
-
 
 /* Colors 
 #3E3232
 #503C3C
 #7E6363
 #A87C7C
-
-.roboto-regular {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-.playball-regular {
-  font-family: "Playball", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
 */
 
-
 #root {
-min-height: 100vh;
-display: flex;
-flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .main {
   flex-grow: 1;
 }
 
-footer{
+footer {
   background-color: #3E3232;
 }
 
 
-.nav-estilo{
+.nav-estilo {
   background-color: #503C3C;
 }
 
 
-.titulo-inicio{
+.titulo-inicio {
   font-family: "Playball", cursive;
 }
 
@@ -51,30 +36,31 @@ footer{
   height: 550px;
 }
 
-.botonColor{
-  background-color:#A87C7C ;
+.botonColor {
+  background-color: #A87C7C;
   color: rgb(35, 35, 35);
   font-family: "Roboto", sans-serif;
   font-size: large;
 }
-.botonColorInicio{
-  background-color:#A87C7C ;
+
+.botonColorInicio {
+  background-color: #A87C7C;
   font-family: "Roboto", sans-serif;
   font-size: large;
 }
 
-.botonColorCrear{
-  background-color:#A87C7C ;
+.botonColorCrear {
+  background-color: #A87C7C;
   color: aliceblue;
   font-family: "Roboto", sans-serif;
   font-size: large;
 }
 
-Table{
+Table {
   background-color: #A87C7C;
 }
 
-.img-receta-admin{
+.img-receta-admin {
   height: 250px;
   width: 250px;
   object-fit: cover;
@@ -97,8 +83,6 @@ Table{
   object-fit: cover;
 }
 
-
-
 /* responsive  */
 @media only screen and (max-width: 991px) {
 
@@ -106,9 +90,6 @@ Table{
     object-fit: cover;
     height: 300px;
   }
-
-
-
 }
 
 @media only screen and (max-width: 767px) {
@@ -117,10 +98,9 @@ Table{
     height: 325px;
   }
 
-  .img-receta-admin{
+  .img-receta-admin {
     height: 200px;
     width: 200px;
     object-fit: cover;
   }
 }
-
