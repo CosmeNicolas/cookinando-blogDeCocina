@@ -2,19 +2,52 @@ import { Form, Button, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
-import { crearRecetaAPI } from "../../../helpers/queries";
+import { crearRecetaAPI, obtenerRecetaAPI } from "../../../helpers/queries";
 import Swal from "sweetalert2";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const FormularioReceta = ({editar, titulo}) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
     reset,
   } = useForm();
+  const {id} =  useParams()
+
+
+  useEffect(() => {
+    cargarDatosReceta()
+  }, [])
+  
+
+
+  const cargarDatosReceta = async () => {
+    const respuesta = await obtenerRecetaAPI(id)
+    console.log(respuesta)
+    if(respuesta.status === 200){
+      const setReceta = await respuesta.json()
+      console.log(setReceta)
+      //traer los valores de las recetas
+      setValue("nombreReceta", setReceta.nombreReceta);
+      setValue("ingrediente1", setReceta.ingrediente1)
+      setValue("ingrediente2", setReceta.ingrediente2)
+      setValue("ingrediente3", setReceta.ingrediente3)
+      setValue("ingrediente4", setReceta.ingrediente4)
+      setValue("imagen", setReceta.imagen )
+      setValue("categoria", setReceta.categoria)
+      setValue()
+      setValue("preparacion", setReceta.preparacion)
+
+    }
+  }
+
+
+
 
   const recetaValidada = async (receta) => {
-    console.log(receta);
    
     //logica par crear producto
     const respuesta = await crearRecetaAPI(receta);
@@ -50,7 +83,7 @@ const FormularioReceta = ({editar, titulo}) => {
             <Form.Control
               type="text"
               placeholder="Ej: Lemon Pie"
-              name="producto"
+              name="nombreReceta"
               {...register("nombreReceta", {
                 required: "El nombre de la receta es obligatorio",
                 minLength: {
