@@ -15,6 +15,7 @@ const FormularioReceta = ({editar, titulo}) => {
 
   const recetaValidada = async (receta) => {
     console.log(receta);
+   
     //logica par crear producto
     const respuesta = await crearRecetaAPI(receta);
     if (respuesta.status === 201) {
