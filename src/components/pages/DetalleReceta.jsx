@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
-/* import Swal from "sweetalert2";  */
 import { obtenerRecetaAPI } from "../../helpers/queries";
+import chef from '../../assets/cocina64.png'
 
 const DetalleReceta = () => {
   const { id } = useParams();
@@ -25,7 +25,7 @@ const DetalleReceta = () => {
   return (
     <>
       <h1 className="text-center titulo-inicio mt-2 pt-3">
-        Detalle de la receta{" "}
+        Detalle de la receta <span><img  src={chef} alt="logo-chef" /></span>
       </h1>
       <div className="container-fluid">
         <hr />

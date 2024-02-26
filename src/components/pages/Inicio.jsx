@@ -1,13 +1,17 @@
-import { Container, Image } from "react-bootstrap";
+import { Container, Image, Spinner } from "react-bootstrap";
 import banner from "../../assets/Cookinando-banner.png";
 import CardReceta from "./receta/CardReceta";
 import { leerRecetasAPI } from "../../helpers/queries";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import libroReceta from "../../assets/libroReceta32p.png";
 
 const Inicio = () => {
   const [receta, setReceta] = useState([]);
+  const [cargando, setCargando] = useState(false);
 
   useEffect(() => {
+    setCargando(true);
     mostraRecetaInicio();
   }, []);
 
@@ -16,7 +20,14 @@ const Inicio = () => {
       const recetasAPI = await leerRecetasAPI();
       setReceta(recetasAPI);
     } catch (error) {
+      Swal.fire({
+        title: "Ocurrio un error en el servidor",
+        text: "Intente realizar esta accion en unos minutos",
+        icon: "error",
+      });
       console.log(error);
+    } finally {
+      setCargando(false);
     }
   };
 
@@ -27,9 +38,28 @@ const Inicio = () => {
           <Image src={banner} className="w-100 imagen-banner" fluid />
         </div>
         <Container>
-          <h1 className="text-center mt-3 titulo-inicio">Nuestras Recetas</h1>
+          <h1 className="text-center mt-3 titulo-inicio">
+            Nuestras Recetas{" "}
+            <span>
+              <img src={libroReceta} alt="logo-receta" />
+            </span>
+          </h1>
           <hr />
-          <CardReceta receta={receta} />
+          {cargando ? (
+            <div className="d-flex justify-content-center mt-2 ">
+              <Spinner
+                className="py-2 cargando"
+                animation="border"
+                role="status"
+              >
+                <span className="visually-hidden text-dark">
+                  Cargando Receta...
+                </span>
+              </Spinner>
+            </div>
+          ) : (
+            <CardReceta receta={receta} />
+          )}
         </Container>
       </section>
     </>

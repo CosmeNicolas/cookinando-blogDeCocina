@@ -13,6 +13,10 @@
   flex-direction: column;
 }
 
+.cargando{
+  color: #A87C7C;
+}
+
 .main {
   flex-grow: 1;
 }
