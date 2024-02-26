@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { crearRecetaAPI } from "../../../helpers/queries";
 import Swal from "sweetalert2";
 
-const FormularioReceta = () => {
+const FormularioReceta = ({editar, titulo}) => {
   const {
     register,
     handleSubmit,
@@ -36,7 +36,7 @@ const FormularioReceta = () => {
   return (
     <>
       <Container className="main p-2">
-        <h1 className="titulo-inicio mt-3 py-2">Nueva Receta</h1>
+        <h1 className="titulo-inicio mt-3 py-2">{titulo}</h1>
         <hr />
         {/* manejo de formulario */}
         <Form

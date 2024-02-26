@@ -4,6 +4,7 @@ import { leerRecetasAPI, eliminarRecetaAPI } from "../../../helpers/queries";
 import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const ItemReceta = ({ receta, setRecetas }) => {
   const eliminarReceta = async () => {
@@ -57,15 +58,15 @@ const ItemReceta = ({ receta, setRecetas }) => {
         </td>
         <td className="py-5 ">
           <div className="d-flex justify-content-center  align-items-center flex-md-column flex-column">
-            <Button variant="warning" className="py-1  my-1">
+            <Link variant="warning" className="py-1 btn btn-warning my-1" to={`/administrador/editar/${receta.id}`} >
               <FontAwesomeIcon icon={faPenToSquare} />
-            </Button>
+            </Link>
             <Button
               onClick={eliminarReceta}
               variant="danger"
               className="py-1 my-1"
             >
-              <FontAwesomeIcon icon={faTrash} />
+              <FontAwesomeIcon  icon={faTrash} />
             </Button>
           </div>
         </td>

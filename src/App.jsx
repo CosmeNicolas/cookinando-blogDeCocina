@@ -26,7 +26,7 @@ function App() {
            <Route
             exact
             path="/administrador/editar/:id"
-            element={<FormularioReceta editar={true} tiutlo="Editar Receta" />}
+            element={<FormularioReceta editar={true} titulo="Editar Receta" />}
           />
            <Route
             exact
