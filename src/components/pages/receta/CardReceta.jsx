@@ -2,8 +2,6 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const CardReceta = ({ receta }) => {
-
-  
   return (
     <>
       <Container>
@@ -26,7 +24,6 @@ const CardReceta = ({ receta }) => {
                   <Link
                     className="btn  botonColorInicio text-light "
                     variant="dark"
-                   
                     to={`/administrador/detalle/${receta.id}`}
                   >
                     Ver Receta
