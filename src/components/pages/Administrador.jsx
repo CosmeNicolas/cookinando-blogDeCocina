@@ -5,6 +5,7 @@ import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import ItemReceta from "./receta/ItemReceta";
 import { leerRecetasAPI } from "../../helpers/queries";
+import Swal from "sweetalert2";
 
 const Administrador = () => {
   const [recetas, setRecetas] = useState([]);
@@ -15,11 +16,24 @@ const Administrador = () => {
 
   const traerRecetas = async () => {
     try {
-      const listaRecetasAPI = await leerRecetasAPI();
-      setRecetas(listaRecetasAPI);
-      console.log(listaRecetasAPI);
+      const respuesta = await leerRecetasAPI();
+      if(respuesta.status === 200){
+        const listaRecetasAPI = await respuesta.json()
+        setRecetas(listaRecetasAPI);
+        console.log(listaRecetasAPI);
+      }else{
+        Swal.fire({
+          title: "Ocurrio un error en el servidor",
+          text: "Intente realizar esta accion en unos minutos",
+          icon: "error",
+        });
+      }
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        title: "Ocurrio un error en el servidor",
+        text: "Intente realizar esta accion en unos minutos",
+        icon: "error",
+      });
     }
   };
 
