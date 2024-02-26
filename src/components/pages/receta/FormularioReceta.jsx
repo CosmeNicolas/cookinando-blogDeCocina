@@ -2,41 +2,103 @@ import { Form, Button, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
-import { crearRecetaAPI } from "../../../helpers/queries";
+import {
+  crearRecetaAPI,
+  editarRecetaAPI,
+  obtenerRecetaAPI,
+} from "../../../helpers/queries";
 import Swal from "sweetalert2";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
-const FormularioReceta = () => {
+const FormularioReceta = ({ editar, titulo }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
     reset,
   } = useForm();
+  const { id } = useParams();
+  const navegacion = useNavigate();
 
-  const recetaValidada = async (receta) => {
-    console.log(receta);
-    //logica par crear producto
-    const respuesta = await crearRecetaAPI(receta);
-    if (respuesta.status === 201) {
-      Swal.fire({
-        title: "Receta Creada!",
-        text: "Receta creada con Exito",
-        icon: "success",
-      });
-      reset();
+  useEffect(() => {
+    if (editar) {
+      cargarDatosReceta();
+    }
+  }, []);
+
+  const cargarDatosReceta = async () => {
+    const respuesta = await obtenerRecetaAPI(id);
+    console.log(respuesta);
+    if (respuesta.status === 200) {
+      const setReceta = await respuesta.json();
+      console.log(setReceta);
+      //traer los valores de las recetas
+      setValue("nombreReceta", setReceta.nombreReceta);
+      setValue("ingrediente1", setReceta.ingrediente1);
+      setValue("ingrediente2", setReceta.ingrediente2);
+      setValue("ingrediente3", setReceta.ingrediente3);
+      setValue("ingrediente4", setReceta.ingrediente4);
+      setValue("imagen", setReceta.imagen);
+      setValue("categoria", setReceta.categoria);
+      setValue();
+      setValue("preparacion", setReceta.preparacion);
     } else {
       Swal.fire({
-        title: "Ocurrio un Error!",
-        text: "Intente crear la receta en unos minutos",
+        title: "Ocurrio un error",
+        text: "Intente realizar esta accion en unos minutos",
         icon: "error",
       });
+    }
+  };
+
+  const recetaValidada = async (receta) => {
+    try {
+      if (editar) {
+        const respuesta = await editarRecetaAPI(id, receta);
+        console.log(respuesta);
+        if (respuesta.status === 200) {
+          Swal.fire({
+            title: "Receta Editada",
+            text: `El producto: ${receta.nombreReceta} fue editado correctamente`,
+            icon: "success",
+          });
+        } else {
+          Swal.fire({
+            title: "Ocurrio un error",
+            text: "Intente modificar este producto en unos minutos",
+            icon: "error",
+          });
+        }
+        navegacion("/administrador");
+      } else {
+        //logica par crear producto
+        const respuesta = await crearRecetaAPI(receta);
+        if (respuesta.status === 201) {
+          Swal.fire({
+            title: "Receta Creada!",
+            text: "Receta creada con Exito",
+            icon: "success",
+          });
+          reset();
+        } else {
+          Swal.fire({
+            title: "Ocurrio un Error!",
+            text: "Intente crear la receta en unos minutos",
+            icon: "error",
+          });
+        }
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
   return (
     <>
       <Container className="main p-2">
-        <h1 className="titulo-inicio mt-3 py-2">Nueva Receta</h1>
+        <h1 className="titulo-inicio mt-3 py-2">{titulo}</h1>
         <hr />
         {/* manejo de formulario */}
         <Form
@@ -49,7 +111,7 @@ const FormularioReceta = () => {
             <Form.Control
               type="text"
               placeholder="Ej: Lemon Pie"
-              name="producto"
+              name="nombreReceta"
               {...register("nombreReceta", {
                 required: "El nombre de la receta es obligatorio",
                 minLength: {
@@ -73,7 +135,7 @@ const FormularioReceta = () => {
             <Form.Control
               type="text"
               placeholder="Ej: Azucar"
-              name="ingrediente"
+              name="ingrediente1"
               {...register("ingrediente1", {
                 required: "Debe ingresar un ingrediente",
                 minLength: {
@@ -83,6 +145,7 @@ const FormularioReceta = () => {
                 maxLength: {
                   value: 150,
                   message: "Supera la cantidad de 150 caracteres",
+
                 },
               })}
             />
@@ -97,7 +160,7 @@ const FormularioReceta = () => {
             <Form.Control
               type="text"
               placeholder="Ej: Azucar"
-              name="ingrediente"
+              name="ingrediente2"
               {...register("ingrediente2", {
                 required: "Debe ingresar un ingrediente",
                 minLength: {
@@ -105,13 +168,13 @@ const FormularioReceta = () => {
                   message: "El ingrediente debe tener como minimo 2 caracteres",
                 },
                 maxLength: {
-                  alue: 150,
+                  value: 150,
                   message: "Supera la cantidad de 150 caracteres",
                 },
               })}
             />
             <Form.Text className="text-danger">
-              {errors.ingrediente1?.message}
+              {errors.ingrediente2?.message}
             </Form.Text>
           </Form.Group>
 
@@ -120,8 +183,8 @@ const FormularioReceta = () => {
             <Form.Label>Ingrediente 3**</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Ej: Azucar"
-              name="ingrediente"
+              placeholder="Ej: Pimienta"
+              name="ingrediente3"
               {...register("ingrediente3", {
                 required: "Debe ingresar un ingrediente",
                 minLength: {
@@ -129,13 +192,15 @@ const FormularioReceta = () => {
                   message: "El ingrediente debe tener como minimo 2 caracteres",
                 },
                 maxLength: {
-                  alue: 150,
+
+                  value: 150,
                   message: "Supera la cantidad de 150 caracteres",
+
                 },
               })}
             />
             <Form.Text className="text-danger">
-              {errors.ingrediente1?.message}
+              {errors.ingrediente3?.message}
             </Form.Text>
           </Form.Group>
 
@@ -144,8 +209,8 @@ const FormularioReceta = () => {
             <Form.Label>Ingrediente 4**</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Ej: Azucar"
-              name="ingrediente"
+              placeholder="Ej: Sal"
+              name="ingrediente4"
               {...register("ingrediente4", {
                 required: "Debe ingresar un ingrediente",
                 minLength: {
@@ -153,13 +218,13 @@ const FormularioReceta = () => {
                   message: "El ingrediente debe tener como minimo 2 caracteres",
                 },
                 maxLength: {
-                  alue: 150,
+                  value: 150,
                   message: "Supera la cantidad de 150 caracteres",
                 },
               })}
             />
             <Form.Text className="text-danger">
-              {errors.ingrediente1?.message}
+              {errors.ingrediente4?.message}
             </Form.Text>
           </Form.Group>
 
@@ -168,8 +233,8 @@ const FormularioReceta = () => {
             <Form.Label>Ingrediente 5**</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Ej: Azucar"
-              name="ingrediente"
+              placeholder="Ej: 100grs Carne"
+              name="ingrediente5"
               {...register("ingrediente5", {
                 required: "Debe ingresar un ingrediente",
                 minLength: {
@@ -177,13 +242,13 @@ const FormularioReceta = () => {
                   message: "El ingrediente debe tener como minimo 2 caracteres",
                 },
                 maxLength: {
-                  alue: 150,
+                  value: 150,
                   message: "Supera la cantidad de 150 caracteres",
                 },
               })}
             />
             <Form.Text className="text-danger">
-              {errors.ingrediente1?.message}
+              {errors.ingrediente5?.message}
             </Form.Text>
           </Form.Group>
 
@@ -199,7 +264,7 @@ const FormularioReceta = () => {
               {...register("imagen", {
                 required: "Debe ingresar una URL de imagen en formato png",
                 pattern: {
-                  value: /\.(jpg|jpeg|png|gif)$/i, // Asegura que la URL termine en ".jpg", ".jpeg", ".png" o ".gif"
+                  value: /\.(jpg|jpeg|png|gif)$/i,
                   message:
                     "La URL debe ser una imagen en formato JPG, JPEG, PNG o GIF",
                 },
