@@ -68,6 +68,9 @@ src/services: Contiene los servicios para la comunicación con el servidor JSON.
 
 public: Archivos estáticos, como imágenes y el archivo index.html.
 
+## Deploy del proyecto
+[cookinando](https://cookinando.netlify.app/)
+
 ## 🦐🍹🐖🍗🐓🧂🥗
 
 🐓 🐖"Saborea la aventura culinaria con Cookinando, ¡donde cada receta es un viaje de deliciosos descubrimientos!" 🥩🍗
