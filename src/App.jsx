@@ -33,7 +33,7 @@ function App() {
             path="/administrador/detalle/:id"
             element={<DetalleReceta />}
           />
-          <Route path="/error" element={<Error/>} />
+          <Route path="*" element={<Error/>} />
         </Routes>
         <Footer />
       </BrowserRouter>
