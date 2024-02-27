@@ -17,10 +17,13 @@ const Administrador = () => {
   const traerRecetas = async () => {
     try {
       const respuesta = await leerRecetasAPI();
-
+      if(respuesta.status === 200){
+        const listaRecetasAPI = await respuesta;
+        setRecetas(listaRecetasAPI);
+      }
       const listaRecetasAPI = await respuesta;
       setRecetas(listaRecetasAPI);
-      console.log(listaRecetasAPI);
+      
     } catch (error) {
       Swal.fire({
         title: "Ocurrio un error en el servidor",
