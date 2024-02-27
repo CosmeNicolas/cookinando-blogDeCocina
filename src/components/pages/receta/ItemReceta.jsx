@@ -58,7 +58,11 @@ const ItemReceta = ({ receta, setRecetas }) => {
         </td>
         <td className="py-5 ">
           <div className="d-flex justify-content-center  align-items-center flex-md-column flex-column">
-            <Link variant="warning" className="py-1 btn btn-warning my-1" to={`/administrador/editar/${receta.id}`} >
+            <Link
+              variant="warning"
+              className="py-1 btn btn-warning my-1"
+              to={`/administrador/editar/${receta.id}`}
+            >
               <FontAwesomeIcon icon={faPenToSquare} />
             </Link>
             <Button
@@ -66,7 +70,7 @@ const ItemReceta = ({ receta, setRecetas }) => {
               variant="danger"
               className="py-1 my-1"
             >
-              <FontAwesomeIcon  icon={faTrash} />
+              <FontAwesomeIcon icon={faTrash} />
             </Button>
           </div>
         </td>

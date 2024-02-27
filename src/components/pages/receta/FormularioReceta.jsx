@@ -145,7 +145,6 @@ const FormularioReceta = ({ editar, titulo }) => {
                 maxLength: {
                   value: 150,
                   message: "Supera la cantidad de 150 caracteres",
-
                 },
               })}
             />
@@ -192,10 +191,8 @@ const FormularioReceta = ({ editar, titulo }) => {
                   message: "El ingrediente debe tener como minimo 2 caracteres",
                 },
                 maxLength: {
-
                   value: 150,
                   message: "Supera la cantidad de 150 caracteres",
-
                 },
               })}
             />
