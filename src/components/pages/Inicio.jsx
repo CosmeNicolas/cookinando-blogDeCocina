@@ -23,7 +23,7 @@ const Inicio = () => {
         setReceta(recetasAPI);
       } 
         const recetasAPI = await respuesta;
-        setReceta(recetasAPI);
+        setReceta(recetasAP);
       
     } catch (error) {
       Swal.fire({
