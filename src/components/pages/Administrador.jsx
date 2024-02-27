@@ -17,18 +17,11 @@ const Administrador = () => {
   const traerRecetas = async () => {
     try {
       const respuesta = await leerRecetasAPI();
-      if(respuesta.status === 200){
-        const listaRecetasAPI = await respuesta.json()
+      
+        const listaRecetasAPI = await respuesta
         setRecetas(listaRecetasAPI);
         console.log(listaRecetasAPI);
-      }else{
-        Swal.fire({
-          title: "Ocurrio un error en el servidor",
-          text: "Intente realizar esta accion en unos minutos",
-          icon: "error",
-        });
-      }
-    } catch (error) {
+      }catch (error) {
       Swal.fire({
         title: "Ocurrio un error en el servidor",
         text: "Intente realizar esta accion en unos minutos",
