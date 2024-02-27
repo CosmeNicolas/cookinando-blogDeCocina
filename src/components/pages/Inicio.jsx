@@ -23,7 +23,7 @@ const Inicio = () => {
         setReceta(recetasAPI);
       } 
         const recetasAPI = await respuesta;
-        setReceta(recetasAP);
+        setReceta(recetasAPI);
       
     } catch (error) {
       Swal.fire({
@@ -44,7 +44,7 @@ const Inicio = () => {
         </div>
         <Container>
           <h1 className="text-center mt-3 titulo-inicio">
-            Nuestras Recetas{" "}
+            Nuestras Recetas
             <span>
               <img src={libroReceta} alt="logo-receta" />
             </span>
