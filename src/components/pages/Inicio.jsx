@@ -18,13 +18,12 @@ const Inicio = () => {
   const mostraRecetaInicio = async () => {
     try {
       const respuesta = await leerRecetasAPI();
-      if(respuesta.status === 200){
+      if (respuesta.status === 200) {
         const recetasAPI = await respuesta;
         setReceta(recetasAPI);
-      } 
-        const recetasAPI = await respuesta;
-        setReceta(recetasAPI);
-      
+      }
+      const recetasAPI = await respuesta;
+      setReceta(recetasAPI);
     } catch (error) {
       Swal.fire({
         title: "Ocurrió un error en el servidor",
