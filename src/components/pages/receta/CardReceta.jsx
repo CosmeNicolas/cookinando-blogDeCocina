@@ -7,7 +7,7 @@ const CardReceta = ({ receta }) => {
       <Container>
         <Row>
           {receta.map((receta) => (
-            <Col key={receta.id}>
+            <Col key={receta._id}>
               <Card className="my-3 mx-1">
                 <Card.Img
                   variant="top"
@@ -22,9 +22,8 @@ const CardReceta = ({ receta }) => {
                 </Card.Body>
                 <Card.Footer className="text-end">
                   <Link
-                    className="btn  botonColorInicio text-light "
-                    variant="dark"
-                    to={`/administrador/detalle/${receta.id}`}
+                   className="btn btn-dark botonColorInicio " variant="dark"
+                    to={`/administrador/detalle/${receta._id}`}
                   >
                     Ver Receta
                   </Link>

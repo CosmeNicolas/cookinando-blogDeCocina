@@ -28,21 +28,20 @@ const DetalleReceta = () => {
         Detalle de la receta <span><img  src={chef} alt="logo-chef" /></span>
       </h1>
       <div className="container-fluid">
-        <hr />
       </div>
+              <hr />
       <section className=" main mt-3 ">
         <Container className="p-lg-5" fluid>
           <div className="d-flex flex-column container-fluid  justify-content-evenly align-content-center contenedor-detalle contenedor-img-detalle">
+              <h2 className="display-6 mt-2 text-md-center text-sm-center ">
+                {detalle.nombreReceta}
+              </h2>
             <img
               className=" rounded-2 my-3 img-fluid img-detalle "
               src={detalle.imagen}
               alt="receta-cafeteria"
             />
             <div className="ms-2 w-100">
-              <h2 className="display-6 mt-2 text-md-center text-sm-center ">
-                {detalle.nombreReceta}
-              </h2>
-              <hr />
 
               <ul className="list-unstyled p-lg-5">
                 <li>
