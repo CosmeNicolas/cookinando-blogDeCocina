@@ -19,7 +19,7 @@ const ItemReceta = ({ receta, setRecetas }) => {
       cancelButtonText: "Cancelar",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const respuesta = await eliminarRecetaAPI(receta._id);
+        const respuesta = await eliminarRecetaAPI(receta.id);
         if (respuesta.status === 200) {
           //actualizar la tabla
           const recetasActualizadas = await leerRecetasAPI();
@@ -36,8 +36,7 @@ const ItemReceta = ({ receta, setRecetas }) => {
 
   return (
     <>
-      <tr key={receta._id}>
-        <td>{receta._id}</td>
+      <tr key={receta.id}>
         <td>{receta.nombreReceta}</td>
         <td>{receta.categoria}</td>
         <td>
@@ -61,7 +60,7 @@ const ItemReceta = ({ receta, setRecetas }) => {
             <Link
               variant="warning"
               className="py-1 btn btn-warning my-1"
-              to={`/administrador/editar/${receta._id}`}
+              to={`/administrador/editar/${receta.id}`}
             >
               <FontAwesomeIcon icon={faPenToSquare} />
             </Link>
