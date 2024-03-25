@@ -11,6 +11,8 @@ import Error from "./components/pages/Error";
 import FormularioReceta from "./components/pages/receta/FormularioReceta";
 import Login from "./components/pages/Login";
 import { useState } from "react";
+import RutasProtegidas from "./components/routes/RutasProtegidas";
+import RutasAdmin from "./components/routes/RutasAdmin";
 
 
 function App() {
@@ -22,26 +24,30 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBarMenu  usuarioLogueado={usuarioLogueado}  setUsuarioLogueado={setUsuarioLogueado}/>
+        <NavBarMenu
+          usuarioLogueado={usuarioLogueado}
+          setUsuarioLogueado={setUsuarioLogueado}
+        />
         <Routes>
           <Route exact path="/" element={<Inicio />} />
-          <Route exact path="/administrador" element={<Administrador />} />
+
           <Route
             exact
-            path="/administrador/crear"
-            element={<FormularioReceta editar={false} titulo='Nueva Receta' />}
+            path="/administrador/*"
+            element={
+              <RutasProtegidas>
+                <RutasAdmin />
+              </RutasProtegidas>
+            }
           />
-           <Route
-            exact
-            path="/administrador/editar/:id"
-            element={<FormularioReceta editar={true} titulo="Editar Receta" />}
-          />
+        
+          <Route exact path="/administrador/detalle/:id" />
           <Route
-          exact
-          path="/administrador/detalle/:id"
+            exact
+            path="/login"
+            element={<Login setUsuarioLogueado={setUsuarioLogueado} />}
           />
-           <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado} />} />
-          <Route path="*" element={<Error/>} />
+          <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
       </BrowserRouter>

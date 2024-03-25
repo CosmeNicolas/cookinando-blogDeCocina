@@ -1,6 +1,6 @@
 import { Route, Routes} from "react-router-dom"
 import Administrador from '../pages/Administrador'
-import NuevoProducto from '../pages/producto/NuevoProducto'
+import FormularioReceta from "../pages/receta/FormularioReceta";
 
 const RutasAdmin = () => {
   return (
@@ -10,12 +10,12 @@ const RutasAdmin = () => {
         <Route
           exact
           path="/crear"
-          element={<NuevoProducto editar={false} titulo="Nuevo Producto" />}
+          element={<FormularioReceta editar={false} titulo="Nueva Receta" />}
         />
         <Route
           exact
           path="/editar/:id"
-          element={<NuevoProducto editar={true} titulo="Editar Producto" />}
+          element={<FormularioReceta editar={true} titulo="Editar Receta" />}
         />
       </Routes>
     </>

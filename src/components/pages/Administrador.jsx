@@ -33,6 +33,8 @@ const Administrador = () => {
     }
   };
 
+
+
   return (
     <Container className="main">
       <div className="d-flex justify-content-around mt-3">
