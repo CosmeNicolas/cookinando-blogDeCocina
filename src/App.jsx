@@ -41,7 +41,8 @@ function App() {
             }
           />
         
-          <Route exact path="/administrador/detalle/:id" />
+          <Route exact path="/administrador/detalle/:id" 
+          element={<DetalleReceta/>}/>
           <Route
             exact
             path="/login"
