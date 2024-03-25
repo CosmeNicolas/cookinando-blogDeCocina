@@ -38,7 +38,7 @@ const Inicio = () => {
   return (
     <>
       <section className="main">
-        <div className="contenedor-imgInicip">
+        <div>
           <Image src={banner} className="w-100 imagen-banner" fluid />
         </div>
         <Container>

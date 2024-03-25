@@ -1,9 +1,15 @@
 import { Container, Nav, Navbar, Image } from "react-bootstrap";
 import LogoMarca from '../../assets/CookinandoBlanco-sf.png'
-import {Link, NavLink} from 'react-router-dom'
+import {Link, NavLink, useNavigate} from 'react-router-dom'
 
 
-const NavBarMenu = () => {
+const NavBarMenu = ({ usuarioLogueado, setUsuarioLogueado }) => {
+  const navegacion = useNavigate();
+  const logout = () => {
+    sessionStorage.removeItem("inicioRollingCoffee");
+    setUsuarioLogueado("");
+    navegacion("/");
+  };
   return (
     <>
       <Navbar variant="dark" expand="lg" className="nav-estilo">
@@ -20,12 +26,20 @@ const NavBarMenu = () => {
               <NavLink className="nav-link" to="/" href="#home">
                 Inicio
               </NavLink>
-              <NavLink className="nav-link" to='/administrador'>
-                Administrador
+              {usuarioLogueado.length > 0 ? (
+                <>
+                  <NavLink className="nav-link" to="/administrador">
+                    Adminsitrador
+                  </NavLink>
+                  <Link className="nav-link" variant="link" onClick={logout}>
+                    LogOut
+                  </Link>
+                </>
+              ) : (
+                <NavLink className="nav-link" to="/login">
+                  Login
                 </NavLink>
-              <NavLink className="nav-link" to='/login' href="#link">
-                Login
-                </NavLink>
+              )}
               <NavLink className="nav-link" to='error' href="#link">
                 Registro
                 </NavLink>

@@ -6,7 +6,6 @@
 #7E6363
 #A87C7C
 */
-
 #root {
   min-height: 100vh;
   display: flex;
@@ -74,8 +73,33 @@ Table {
   width: 100%;
   object-fit: cover;
 }
+/* login */
+.container-login {
+  background: rgba(44, 46, 52, 0.529);
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+}
 
-
+.fondo-login {
+  flex-grow: 1;
+  background-image: url('./assets/ingredientes.jpeg');
+  background-size: cover;
+  /* Esto ajusta la imagen para cubrir todo el fondo */
+  background-position: center;
+  /* Esto centra la imagen en el fondo */
+  background-repeat: no-repeat;
+  /* Esto evita que la imagen se repita */
+}
+.titulo-login{
+  font-family: "Playball", cursive;
+  color: aliceblue;
+  -webkit-text-stroke-width:0.6px; /* Ancho del borde */
+  -webkit-text-stroke-color: black; /* Color del borde */
+  font-weight: 400;
+}
+/* end Login */
 .img-detalle {
   height: 500px;
   object-fit: cover;
